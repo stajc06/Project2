@@ -13,7 +13,7 @@ public class ClanMember {
     private final int clanID;
     private final ClanMemberType type;
 
-    // Each clan mamber starts off with hitPoints == maxHitPoints. Attack
+    // Each clan member starts off with hitPoints == maxHitPoints. Attack
     // damage decreases hitPoints. Iteration damage decreases both hitPoints
     // and maxHitPoints.
     private int maxHitPoints;
@@ -51,7 +51,7 @@ public class ClanMember {
         return clanID;
     }
 
-    /**  Get the clan member type passed to the contructor  */
+    /**  Get the clan member type passed to the constructor  */
     public ClanMemberType getType() {
         return type;
     }

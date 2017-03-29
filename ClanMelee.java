@@ -31,7 +31,7 @@ public class ClanMelee {
                 clanStats.addPlayer(member);
         }
 
-  
+
         int clanCount = totalClanCount;
 
         boolean[] previouslyAlive = new boolean[totalClanCount];
@@ -120,6 +120,10 @@ public class ClanMelee {
         }
     }
 
+    /**
+     * Calls print method in ClansWins class to print the name and
+     * number of wins for each clan involved in the round
+     */
     void printStats() {
         clansWins.print();
     }
