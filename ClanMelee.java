@@ -12,10 +12,10 @@ public class ClanMelee {
     ClansWins clansWins = new ClansWins();
 
     public void runMelee(Collection<Clan> clans, int hitPoints) {
-        ArrayList<ClanMember> participants = new ArrayList<>();
-        int totalClanCount = clans.size();
-        String[] clanNames = new String[totalClanCount];
-        ClanStats clanStats = new ClanStats(totalClanCount);
+        ArrayList<ClanMember> participants = new ArrayList<>(); // initializes an ArrayList of all ClanMember involved
+        int totalClanCount = clans.size(); // number of clans in the collections 'clans'
+        String[] clanNames = new String[totalClanCount]; // initializes the length of the list of all clan names
+        ClanStats clanStats = new ClanStats(totalClanCount); // initializes a ClanStats object with the size of 'clans'
 
         for (Clan clan : clans) {
             int clanID = clan.getClanID();
@@ -102,21 +102,36 @@ public class ClanMelee {
         }
     }
 
+    /**
+     * Sets up an interaction where p1 and p2 attack/heal one another
+     *
+     * @param p1 - the first ClanMember in an interaction
+     * @param p2 - the second ClanMember in an interaction
+     */
     private void runInteraction(ClanMember p1, ClanMember p2) {
         int p1Action = p1.getActionPoints(p2);
         int p2Action = p2.getActionPoints(p1);
 
+        // performs the attacks or heals
         applyAction(p1, p1Action, p2, p2Action);
         applyAction(p2, p2Action, p1, p1Action);
     }
 
+    /**
+     * Performs the attack or heal action between two clanMembers
+     *
+     * @param p1 - the first clanMember in an interaction
+     * @param p1Action - the number of points p1 has to attack or heal with
+     * @param p2 - the second clanMember in an interaction
+     * @param p2Action - the number of points p2 has to attack or heal with
+     */
     private void applyAction(ClanMember p1, int p1Action,
                              ClanMember p2, int p2Action) {
         if (p1.getType() == HEALER)
-            p2.heal(p1Action);
+            p2.heal(p1Action); // heals p2
         else {
             if (p2Action > 0 || Math.random() < 0.5)
-                p2.dealDamage(p1Action);
+                p2.dealDamage(p1Action); // attacks p2
         }
     }
 
