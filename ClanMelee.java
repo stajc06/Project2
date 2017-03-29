@@ -125,12 +125,9 @@ public class ClanMelee {
     }
 
     /**
-<<<<<<< HEAD
      * Performs heal action for HEALER clan member or
      * dealDamage action for other character.
-     */
-
-=======
+     *
      * Performs the attack or heal action between two clanMembers
      *
      * @param p1 - the first clanMember in an interaction
@@ -138,7 +135,6 @@ public class ClanMelee {
      * @param p2 - the second clanMember in an interaction
      * @param p2Action - the number of points p2 has to attack or heal with
      */
->>>>>>> e1ab3547e709516695434087b4a2ac91dc831fae
     private void applyAction(ClanMember p1, int p1Action,
                              ClanMember p2, int p2Action) {
         if (p1.getType() == HEALER)
