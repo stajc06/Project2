@@ -102,6 +102,11 @@ public class ClanMelee {
         }
     }
 
+    /**
+     * Performs 1 turn for clan members involved.
+     * Uses 1 applyAction for each member.
+     */
+
     private void runInteraction(ClanMember p1, ClanMember p2) {
         int p1Action = p1.getActionPoints(p2);
         int p2Action = p2.getActionPoints(p1);
@@ -109,6 +114,11 @@ public class ClanMelee {
         applyAction(p1, p1Action, p2, p2Action);
         applyAction(p2, p2Action, p1, p1Action);
     }
+
+    /**
+     * Performs heal action for HEALER clan member or
+     * dealDamage action for other character.
+     */
 
     private void applyAction(ClanMember p1, int p1Action,
                              ClanMember p2, int p2Action) {
@@ -127,6 +137,14 @@ public class ClanMelee {
     void printStats() {
         clansWins.print();
     }
+
+    /**
+     * Checks for validity of each clan member within a clan.
+     * If member's ID does not match overall clan's ID, clan is disqualified, and may not be used.
+     * If clan has more total hit points than are allowed by game, then the clan is disqualified.
+     * Otherwise, clan is valid.
+     *
+     */
 
     private boolean validateClan(Collection<ClanMember> members, int hitPoints,
                                  int clanID, String clanName) {
