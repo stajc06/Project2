@@ -11,6 +11,11 @@ import java.util.Collections;
 public class ClanMelee {
     ClansWins clansWins = new ClansWins();
 
+    /**
+     * Runs one round of interactions until one clan is left, or there is a winner
+     * @param clans - the list of clans involved in the interaction
+     * @param hitPoints - maximum number of hitpoints for the specific round
+     */
     public void runMelee(Collection<Clan> clans, int hitPoints) {
         ArrayList<ClanMember> participants = new ArrayList<>(); // initializes an ArrayList of all ClanMember involved
         int totalClanCount = clans.size(); // number of clans in the collections 'clans'
@@ -20,41 +25,54 @@ public class ClanMelee {
         for (Clan clan : clans) {
             int clanID = clan.getClanID();
             String clanName = clan.getClanName();
+            // adds each clan in clans to clansWins with ID as key, clanName as the value
             if (clansWins.clanCount() < clans.size())
                 clansWins.addClan(clanID, clanName);
+            // creates a collection of the clan member in a specific clan
             Collection<ClanMember> members = clan.getClanMembers(hitPoints);
+            // ensures the clan is valid
             if (!validateClan(members, hitPoints, clanID, clan.getClanName()))
                 continue;
+            // adds name of the clan to the list of clanNames
             clanNames[clanID] = clan.getClanName();
+            // adds all members of each clan to the list of participants
             participants.addAll(members);
+            // adds each member to clanStats to keep track of hitPoints, wins, etc
             for (ClanMember member : members)
                 clanStats.addPlayer(member);
         }
 
-
+        // creates another variable to keep track of the number of clans
         int clanCount = totalClanCount;
 
+        // initializes a list of booleans for each clan to say they were all alive
         boolean[] previouslyAlive = new boolean[totalClanCount];
         Arrays.fill(previouslyAlive, true);
         int roundCount = 0;
 
         while (clanCount > 1) {
-            Collections.shuffle(participants);
-            clanStats = new ClanStats(totalClanCount);
+            Collections.shuffle(participants); // randomly order all clanMembers involved
+            clanStats = new ClanStats(totalClanCount); // initialize clanStats with number of clans as argument
+            // initialize list of booleans for each clan to say they are dead
             boolean[] currentlyAlive = new boolean[totalClanCount];
             Arrays.fill(currentlyAlive, false);
+            // creates a list to keep track of the clanMembers still alive
             ArrayList<ClanMember> remaining = new ArrayList<>(participants.size());
+            // loop iterates 2 at a time so that one clanMember does not interact twice in a row
             for (int i = 0; i < participants.size() - 1; i += 2) {
                 ClanMember p1 = participants.get(i);
                 ClanMember p2 = participants.get(i + 1);
 
+                // runs an interaction between adjacent clanMembers in the list
                 runInteraction(p1, p2);
 
+                // p1 wins, say he is alive
                 if (p1.isAlive()) {
                     clanStats.addPlayer(p1);
                     currentlyAlive[p1.getClanID()] = true;
                     remaining.add(p1);
                 }
+                // p2 wins, say he is alive
                 if (p2.isAlive()) {
                     clanStats.addPlayer(p2);
                     currentlyAlive[p2.getClanID()] = true;
@@ -62,10 +80,12 @@ public class ClanMelee {
                 }
             }
 
+            // if one clanMember is left over, make them inflict damage on themselves
             if (participants.size() % 2 == 1) {
                 ClanMember lastPlayer = participants.get(participants.size() - 1);
                 int lastID = lastPlayer.getClanID();
                 lastPlayer.dealIterationDamage(0);
+                // checks if last member is alive, adds him if he is
                 if (lastPlayer.isAlive()) {
                     clanStats.addPlayer(lastPlayer);
                     currentlyAlive[lastID] = true;
@@ -73,10 +93,12 @@ public class ClanMelee {
                 }
             }
 
+            // update clanCount to the number of clanMember left alive
             clanCount = clanStats.getClanCount();
 
             roundCount += 1;
 
+            // removes clans that have been eliminated
             for (int i = 0; i < totalClanCount; i++) {
                 if (!currentlyAlive[i] && previouslyAlive[i]) {
                     if (clanNames[i] == null)
@@ -86,15 +108,19 @@ public class ClanMelee {
                 }
             }
 
+            // updates previously alive for next iteration
             previouslyAlive = currentlyAlive;
 
+            // update participants to only the remaining left alive
             participants = remaining;
         }
 
+        // do this if all clans were eliminated
         if (clanCount == 0) {
             System.out.println("All were slain after " + roundCount
                     + " interactions!");
-        } else {
+        } // prints name of winning clan if not all eliminated
+        else {
             int victorID = clanStats.getWinner();
             System.out.println(clanNames[victorID] + " emerged victorious after " +
                     roundCount + " interactions!");
