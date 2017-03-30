@@ -103,18 +103,14 @@ public class ClanMelee {
     }
 
     /**
-<<<<<<< HEAD
      * Performs 1 turn for clan members involved.
      * Uses 1 applyAction for each member.
-     */
-
-=======
+     *
      * Sets up an interaction where p1 and p2 attack/heal one another
      *
      * @param p1 - the first ClanMember in an interaction
      * @param p2 - the second ClanMember in an interaction
      */
->>>>>>> e1ab3547e709516695434087b4a2ac91dc831fae
     private void runInteraction(ClanMember p1, ClanMember p2) {
         int p1Action = p1.getActionPoints(p2);
         int p2Action = p2.getActionPoints(p1);
