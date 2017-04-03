@@ -23,8 +23,7 @@ public class Main {
             for (int i = 0; i < 5; i++) {
                 int hitPoints = wiggle(baseHitPoints);
 
-                System.out.println("Round " + round + ", " + hitPoints
-                        + " hit points per clan");
+                System.out.println("Round " + round + ", " + hitPoints + " hit points per clan");
                 System.out.println();
 
                 melee.runMelee(clans, hitPoints);
