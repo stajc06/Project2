@@ -9,8 +9,8 @@ import java.util.HashMap;
  * and the name of the clan as the value.
  */
 
-public class ClansWins {
-    private HashMap<Integer, ClanWins> clansWins = new HashMap<>();
+public class TotalWinsOfClans {
+    private HashMap<Integer, ClanWins> totalWinsOfClans = new HashMap<>();
     private int maxNameWidth = 0;
 
     /**
@@ -18,7 +18,7 @@ public class ClansWins {
      * @return int - the number of clans in the HashMap
      */
     public int clanCount() {
-        return clansWins.size();
+        return totalWinsOfClans.size();
     }
 
     /**
@@ -27,7 +27,7 @@ public class ClansWins {
      * @param clanName - name of the clan that is being created
      */
     public void addClan(int clanID, String clanName) {
-        clansWins.put(clanID, new ClanWins(clanName));
+        totalWinsOfClans.put(clanID, new ClanWins(clanName));
         if (clanName.length() > maxNameWidth)
             maxNameWidth = clanName.length();
     }
@@ -37,7 +37,7 @@ public class ClansWins {
      * @param victorID - integer ID of the winning clan
      */
     public void addWin(int victorID) {
-        clansWins.get(victorID).addWin();
+        totalWinsOfClans.get(victorID).addWin();
     }
 
     /**
@@ -45,7 +45,7 @@ public class ClansWins {
      */
     public void print() {
         ArrayList<ClanWins> arrayWins = new ArrayList<>();
-        arrayWins.addAll(clansWins.values());
+        arrayWins.addAll(totalWinsOfClans.values());
         Collections.sort(arrayWins);
         String line = "+";
         for (int i = 0; i < maxNameWidth + 6; i++) // creates box around the clans in the round
