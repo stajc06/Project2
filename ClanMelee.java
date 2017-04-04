@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class ClanMelee {
-    ClansWins clansWins = new ClansWins();
+    TotalWinsOfClans clansWins = new TotalWinsOfClans();
     ArrayList<ClanMember> participants;
     int totalClanCount;
     ClanStats clanStats;
@@ -239,7 +239,7 @@ public class ClanMelee {
     }
 
     /**
-     * Calls print method in ClansWins class to print the name and
+     * Calls print method in TotalWinsOfClans class to print the name and
      * number of wins for each clan involved in the round
      */
     void printStats() {
