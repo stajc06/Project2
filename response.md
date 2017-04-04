@@ -11,3 +11,5 @@ And integrated ClanMember to use ClanMelee instead of ClanMeleeConstants. Now th
 -We changed the name of the ClansWins class to TotalWinsOfClans to make the code easier to read and understand.
 Although this does not have to do with refactoring, it makes the code a lot more understandable and avoids the
 confusion when talking about ClanWins and ClansWins.
+
+-Added annotations and JavaDoc to classes within Clan1 folder. 
