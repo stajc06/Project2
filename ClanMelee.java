@@ -14,6 +14,7 @@ public class ClanMelee {
     int totalClanCount;
     ClanStats clanStats;
     String[] clanNames;
+    // the maximum number of hit points
     public static final int HIT_POINT_CAP = 1000;
     // number of action points that do not cost additional iteration damage
     public static final int FREE_ACTION_POINTS = 10;
