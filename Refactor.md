@@ -16,3 +16,7 @@ confusion when talking about ClanWins and ClansWins.
 as any attempt to shorten the code there would most likely result in causing more complications for the code referring 
 to the Clan1 classes.
     -Same changes and reasons apply to Clan2, Clan, ClanFactory, and ClanStats
+    
+-We did not refactor the structure of the code because we felt that changing the relationships between classes
+would be too cumbersome of a task and it would not be worth the time it would have taken. We also felt that
+the relationships made sense throughout the code for the most part.
