@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class ClanMelee {
-    ClansWins clansWins = new ClansWins();
+    TotalWinsOfClans totalWinsOfClans = new TotalWinsOfClans();
     ArrayList<ClanMember> participants;
     int totalClanCount;
     ClanStats clanStats;
@@ -138,8 +138,8 @@ public class ClanMelee {
             int clanID = clan.getClanID();
             String clanName = clan.getClanName();
             // adds each clan in clans to clansWins with ID as key, clanName as the value
-            if (clansWins.clanCount() < clans.size())
-                clansWins.addClan(clanID, clanName);
+            if (totalWinsOfClans.clanCount() < clans.size())
+                totalWinsOfClans.addClan(clanID, clanName);
             // creates a collection of the clan member in a specific clan
             Collection<ClanMember> members = clan.getClanMembers(hitPoints);
             // ensures the clan is valid
@@ -173,7 +173,7 @@ public class ClanMelee {
             int victorID = clanStats.getWinner();
             System.out.println(clanNames[victorID] + " emerged victorious after " +
                     numInteractions + " interactions!");
-            clansWins.addWin(victorID);
+            totalWinsOfClans.addWin(victorID);
         }
     }
 
@@ -234,11 +234,11 @@ public class ClanMelee {
     }
 
     /**
-     * Calls print method in ClansWins class to print the name and
+     * Calls print method in TotalWinsOfClans class to print the name and
      * number of wins for each clan involved in the round
      */
     void printStats() {
-        clansWins.print();
+        totalWinsOfClans.print();
     }
 
     /**
