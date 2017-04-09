@@ -11,10 +11,10 @@ public class ClanWins implements Comparable<ClanWins> {
     private Integer wins;
 
     /**
-     * Constructor to create a class with the name as a parameter
-     * and it initializes the number of wins to zero.
+     * Constructor to create a class with the clan name as a parameter
+     * which initializes the number of wins to zero.
      *
-     * @param string name - the desired name of the clan being created
+     * @param String name - the desired name of the clan being created
      */
     public ClanWins(String name) {
         this.name = name;

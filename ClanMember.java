@@ -1,6 +1,6 @@
 package clanmelee;
 
-import static clanmelee.ClanMeleeConstants.*;
+import static clanmelee.ClanMelee.*;
 
 /**
  * All clan members are of this class. Each clan member's strategy is defined
