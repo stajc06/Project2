@@ -11,7 +11,7 @@ import java.util.Collection;
  */
 public class ClanFactory {
     public Collection<Clan> getClans() {
-        ArrayList<Clan> clans = new ArrayList<>();
+        ArrayList<Clan> clans = new ArrayList<Clan>();
 
         int clanID = 0;
 

@@ -64,7 +64,7 @@ public class ClanMelee {
             boolean[] currentlyAlive = new boolean[totalClanCount];
             Arrays.fill(currentlyAlive, false);
             // creates a list to keep track of the clanMembers still alive
-            ArrayList<ClanMember> remaining = new ArrayList<>(participants.size());
+            ArrayList<ClanMember> remaining = new ArrayList<ClanMember>(participants.size());
             // loop iterates 2 at a time so that one clanMember does not interact twice in a row
             performAllInteractions(currentlyAlive, remaining);
 
