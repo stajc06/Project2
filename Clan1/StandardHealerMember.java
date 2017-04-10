@@ -14,6 +14,14 @@ public class StandardHealerMember extends Clan {
         super("Standard Healer", clanID);
     }
 
+    /**
+     * Creates an ArrayList of all clan members of the StandardHealer class using hitPoints as the total hit point value
+     *
+     * @param hitPoints the number of hit points to be distributed amongst all the StandardHealer class clan members
+     * @return An ArrayList containing all StandardHealer class clan members
+     *
+     */
+
     @Override
     public ArrayList<ClanMember> getClanMembers(int hitPoints) {
         ArrayList<ClanMember> clanMembers = new ArrayList<>();

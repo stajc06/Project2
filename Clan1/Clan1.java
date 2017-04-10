@@ -12,6 +12,8 @@ public class Clan1 extends Clan {
     }
     /**
      * This class serves as the main factory which brings together all clan member types into a final list.
+     * All clanMember objects created have the same clanID
+     * Each type of clanMember recieves the same amount of total hitPoints to distribute among its iterations
      */
     @Override
     public ArrayList<ClanMember> getClanMembers(int hitPoints) {
