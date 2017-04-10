@@ -9,11 +9,8 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class ClanMelee {
-<<<<<<< HEAD
     TotalWinsOfClans totalWinsOfClans = new TotalWinsOfClans();
-=======
-    TotalWinsOfClans clansWins = new TotalWinsOfClans();
->>>>>>> b751b3b1913162dcfe362de57020fb46e45deb80
+
     ArrayList<ClanMember> participants;
     int totalClanCount;
     ClanStats clanStats;
@@ -66,7 +63,7 @@ public class ClanMelee {
             boolean[] currentlyAlive = new boolean[totalClanCount];
             Arrays.fill(currentlyAlive, false);
             // creates a list to keep track of the clanMembers still alive
-            ArrayList<ClanMember> remaining = new ArrayList<>(participants.size());
+            ArrayList<ClanMember> remaining = new ArrayList<ClanMember>(participants.size());
             // loop iterates 2 at a time so that one clanMember does not interact twice in a row
             performAllInteractions(currentlyAlive, remaining);
 

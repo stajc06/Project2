@@ -10,7 +10,7 @@ import java.util.HashMap;
  */
 
 public class TotalWinsOfClans {
-    private HashMap<Integer, ClanWins> totalWinsOfClans = new HashMap<>();
+    private HashMap<Integer, ClanWins> totalWinsOfClans = new HashMap<Integer, ClanWins>();
     private int maxNameWidth = 0;
 
     /**
@@ -44,7 +44,7 @@ public class TotalWinsOfClans {
      * Prints out the name of each clan and its corresponding number of wins
      */
     public void print() {
-        ArrayList<ClanWins> arrayWins = new ArrayList<>();
+        ArrayList<ClanWins> arrayWins = new ArrayList<ClanWins>();
         arrayWins.addAll(totalWinsOfClans.values());
         Collections.sort(arrayWins);
         String line = "+";
