@@ -9,11 +9,9 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class ClanMelee {
-<<<<<<< HEAD
+
     TotalWinsOfClans totalWinsOfClans = new TotalWinsOfClans();
-=======
-    TotalWinsOfClans clansWins = new TotalWinsOfClans();
->>>>>>> b751b3b1913162dcfe362de57020fb46e45deb80
+
     ArrayList<ClanMember> participants;
     int totalClanCount;
     ClanStats clanStats;
