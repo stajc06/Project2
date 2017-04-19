@@ -2,6 +2,7 @@ package clanmelee;
 
 import ClanCarr.ClanCarr;
 import HowardClan.HowardClan;
+import MeonoClan.MeonoClan;
 import ZambelliClan.ZambelliClan;
 import clanmelee.Clan1.Clan1;
 import clanmelee.Clan2.Clan2;
@@ -23,6 +24,7 @@ public class ClanFactory {
         clans.add(new ZambelliClan(clanID++));
         clans.add(new ClanCarr(clanID++));
         clans.add(new HowardClan(clanID++));
+        clans.add(new MeonoClan(clanID++));
 
 
         return clans;
