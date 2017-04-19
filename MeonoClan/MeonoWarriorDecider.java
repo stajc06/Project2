@@ -9,7 +9,7 @@ import static clanmelee.ClanMember.ClanMemberType.WARRIOR;
 
 
 
-public class MeonoWarriorDecider {
+public class MeonoWarriorDecider implements ActionPointDecider {
     private int actionPoints;
 
     public MeonoWarriorDecider(int actionPoints){

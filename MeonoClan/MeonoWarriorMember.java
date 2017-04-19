@@ -17,7 +17,7 @@ public class MeonoWarriorMember extends Clan {
     public ArrayList<ClanMember> getClanMembers(int hitPoints) {
         ArrayList<ClanMember> clanMembers = new ArrayList<>();
 
-        ActionPointDecider decider = new AssassinDecider(16);
+        ActionPointDecider decider = new MeonoWarriorDecider(16);
 
         int adjHitPoints = (int)(hitPoints * .40);
         while (adjHitPoints > 0) {
